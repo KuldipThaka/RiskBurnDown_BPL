@@ -18,8 +18,8 @@ def render_add_risk(df):          # ✅ CORRECT
         if st.button("💾 Save to Local"):
             save_data(df)
     
-    default_type = 'Technical' if st.session_state.user_type == 'tech' else 'Quality'
-    
+    #default_type = 'Technical' if st.session_state.user_type == 'tech' else 'Quality'
+    default_type = 'Technical' if st.session_state.get('user_type') == 'tech' else 'Quality'
     with st.form("add_risk_form"):
         st.subheader("📝 Basic Information")
         col1, col2 = st.columns(2)
