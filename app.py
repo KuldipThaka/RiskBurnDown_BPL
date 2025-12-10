@@ -19,7 +19,12 @@ page = st.sidebar.selectbox("Select Page", ["➕ Add Risk", "📉 Risk Burndown 
 st.sidebar.button("🚪 Logout", on_click=logout)
 
 df = load_data()
-if page == "➕ Add Risk":
+page = st.sidebar.selectbox(
+    "Select Page",
+    ["Dashboard", "Add Risk"]   # you can change order if you want
+)
+
+if page == "Add Risk":
     render_add_risk(df)
-elif page == "📉 Risk Burndown Dashboard":
+else:
     render_dashboard(df)
